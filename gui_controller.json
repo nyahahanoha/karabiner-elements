@@ -1,0 +1,538 @@
+{
+    "title": "GUI controller",
+    "rules": [
+        {
+            "description": "Turned on/off",
+            "manipulators": [ {
+                "type": "basic",
+                "from": {
+                    "key_code": "caps_lock",
+                    "modifiers": {
+                        "optional": ["any"]
+                    }
+                },
+                "to": [
+                    {
+                        "set_variable": {
+                            "name": "mode",
+                            "value": 1
+                        }
+                    },
+                    {
+                        "halt": true,
+                        "set_notification_message": {
+                            "id": "notice",
+                            "text": "Turned on GUI controller"
+                        }
+                    }
+                ],
+                "conditions": [
+                    {
+                        "type": "variable_if",
+                        "name": "mode",
+                        "value": 0
+                    }
+                ]
+                },
+                {
+                "type": "basic",
+                "from": {
+                    "key_code": "caps_lock",
+                    "modifiers": {
+                        "optional": ["any"]
+                    }
+                },
+                "to": [
+                    {
+                        "set_variable": {
+                            "name": "mode",
+                            "value": 0
+                        }
+                    },
+                    {
+                        "set_notification_message": {
+                            "id": "notice",
+                            "text": ""
+                        }
+                    }
+                ],
+                "conditions": [
+                    {
+                        "type": "variable_if",
+                        "name": "mode",
+                        "value": 1
+                    }
+                ]
+                }
+            ]
+        },
+        {
+            "description": "cursor controller",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f"
+                    },
+                    "to": {
+                        "mouse_key": { "x": 1000}
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "mode",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_unless",
+                            "name": "shift",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_unless",
+                            "name": "scroll",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "e"
+                    },
+                    "to": {
+                        "mouse_key": { "y": -1000}
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "mode",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_unless",
+                            "name": "shift",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_unless",
+                            "name": "scroll",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "d"
+                    },
+                    "to": {
+                        "mouse_key": { "y": 1000}
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "mode",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_unless",
+                            "name": "shift",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_unless",
+                            "name": "scroll",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "s"
+                    },
+                    "to": {
+                        "mouse_key": { "x": -1000}
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "mode",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_unless",
+                            "name": "shift",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_unless",
+                            "name": "scroll",
+                            "value": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "cursor dash",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "spacebar",
+                        "modifiers": {
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "shift",
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "to_after_key_up": [
+                        {
+                            "set_variable": {
+                                "name": "shift",
+                                "value": 0
+                            }
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "mode",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f"
+                    },
+                    "to": {
+                        "mouse_key": { "x": 3000}
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "mode",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_if",
+                            "name": "shift",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_unless",
+                            "name": "scroll",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "e"
+                    },
+                    "to": {
+                        "mouse_key": { "y": -3000}
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "mode",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_if",
+                            "name": "shift",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_unless",
+                            "name": "scroll",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "d"
+                    },
+                    "to": {
+                        "mouse_key": { "y": 3000}
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "mode",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_if",
+                            "name": "shift",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_unless",
+                            "name": "scroll",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "s"
+                    },
+                    "to": {
+                        "mouse_key": { "x": -3000}
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "mode",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_if",
+                            "name": "shift",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_unless",
+                            "name": "scroll",
+                            "value": 1
+                        }
+                    ]
+                }
+                ]
+        },
+        {
+            "description": "scroll controller",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "japanese_eisuu",
+                        "modifiers": {
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "scroll",
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "to_after_key_up": [
+                        {
+                            "set_variable": {
+                                "name": "scroll",
+                                "value": 0
+                            }
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "mode",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f"
+                    },
+                    "to": {
+                        "mouse_key": { "horizontal_wheel": 100}
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "mode",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_unless",
+                            "name": "shift",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_if",
+                            "name": "scroll",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "e"
+                    },
+                    "to": {
+                        "mouse_key": { "vertical_wheel": -100}
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "mode",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_unless",
+                            "name": "shift",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_if",
+                            "name": "scroll",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "d"
+                    },
+                    "to": {
+                        "mouse_key": { "vertical_wheel": 100}
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "mode",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_unless",
+                            "name": "shift",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_if",
+                            "name": "scroll",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "s"
+                    },
+                    "to": {
+                        "mouse_key": { "horizontal_wheel": -100}
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "mode",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_unless",
+                            "name": "shift",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_if",
+                            "name": "scroll",
+                            "value": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "mouse button",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "r"
+                    },
+                    "to": [
+                        {
+                            "pointing_button": "button1"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "mode",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "w"
+                    },
+                    "to": [
+                        {
+                            "pointing_button": "button2"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "mode",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "q"
+                    },
+                    "to": [
+                        {
+                            "key_code": "page_up"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "mode",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "a"
+                    },
+                    "to": [
+                        {
+                            "key_code": "page_down"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "mode",
+                            "value": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
