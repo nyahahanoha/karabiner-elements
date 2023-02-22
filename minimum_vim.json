@@ -198,6 +198,54 @@
                     ]
                 }
             ]
+        },
+        {
+            "description": "right_most(minimum_vim)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "a"
+                    },
+                    "to": [
+                        {
+                            "key_code": "e",
+                            "modifiers": ["left_control"]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "vim_mode",
+                            "value": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "left_most(minimum_vim)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "i"
+                    },
+                    "to": [
+                        {
+                            "key_code": "a",
+                            "modifiers": ["left_control"]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "vim_mode",
+                            "value": 1
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
