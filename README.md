@@ -5,7 +5,6 @@
 The keyboard allows several mouse operations.
 I will change the turned on method soon.
 キーボードでいくつかのマウス操作が行えるようになります。
-近日中にturned on の方法を変更します。
 
 ## minimum_vim.json
 At a minimum, vim operations can be performed on the desktop.
