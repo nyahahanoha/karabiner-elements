@@ -6,10 +6,10 @@
             "manipulators": [ {
                 "type": "basic",
                 "from": {
-                    "key_code": "m",
-                    "modifiers": {
-                        "optional": ["left_control"]
-                    }
+                    "simultaneous": [
+                        { "key_code": "m" },
+                        { "key_code": "caps_lock"}
+                    ]
                 },
                 "to": [
                     {
@@ -28,19 +28,16 @@
                 ],
                 "conditions": [
                     {
-                        "type": "variable_if",
+                        "type": "variable_unless",
                         "name": "mouse_mode",
-                        "value": 0
+                        "value": 1
                     }
                 ]
                 },
                 {
                 "type": "basic",
                 "from": {
-                    "key_code": "left_control",
-                    "modifiers": {
-                        "optional": ["any"]
-                    }
+                    "key_code": "caps_lock"
                 },
                 "to": [
                     {
@@ -87,11 +84,6 @@
                             "type": "variable_unless",
                             "name": "shift",
                             "value": 1
-                        },
-                        {
-                            "type": "variable_unless",
-                            "name": "scroll",
-                            "value": 1
                         }
                     ]
                 },
@@ -112,11 +104,6 @@
                         {
                             "type": "variable_unless",
                             "name": "shift",
-                            "value": 1
-                        },
-                        {
-                            "type": "variable_unless",
-                            "name": "scroll",
                             "value": 1
                         }
                     ]
@@ -139,11 +126,6 @@
                             "type": "variable_unless",
                             "name": "shift",
                             "value": 1
-                        },
-                        {
-                            "type": "variable_unless",
-                            "name": "scroll",
-                            "value": 1
                         }
                     ]
                 },
@@ -164,11 +146,6 @@
                         {
                             "type": "variable_unless",
                             "name": "shift",
-                            "value": 1
-                        },
-                        {
-                            "type": "variable_unless",
-                            "name": "scroll",
                             "value": 1
                         }
                     ]
@@ -228,11 +205,6 @@
                             "type": "variable_if",
                             "name": "shift",
                             "value": 1
-                        },
-                        {
-                            "type": "variable_unless",
-                            "name": "scroll",
-                            "value": 1
                         }
                     ]
                 },
@@ -253,11 +225,6 @@
                         {
                             "type": "variable_if",
                             "name": "shift",
-                            "value": 1
-                        },
-                        {
-                            "type": "variable_unless",
-                            "name": "scroll",
                             "value": 1
                         }
                     ]
@@ -280,11 +247,6 @@
                             "type": "variable_if",
                             "name": "shift",
                             "value": 1
-                        },
-                        {
-                            "type": "variable_unless",
-                            "name": "scroll",
-                            "value": 1
                         }
                     ]
                 },
@@ -306,156 +268,10 @@
                             "type": "variable_if",
                             "name": "shift",
                             "value": 1
-                        },
-                        {
-                            "type": "variable_unless",
-                            "name": "scroll",
-                            "value": 1
                         }
                     ]
                 }
                 ]
-        },
-        {
-            "description": "scroll controller(mouse_in_keyboard)",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "japanese_eisuu",
-                        "modifiers": {
-                            "optional": ["any"]
-                        }
-                    },
-                    "to": [
-                        {
-                            "set_variable": {
-                                "name": "scroll",
-                                "value": 1
-                            }
-                        }
-                    ],
-                    "to_after_key_up": [
-                        {
-                            "set_variable": {
-                                "name": "scroll",
-                                "value": 0
-                            }
-                        }
-                    ],
-                    "conditions": [
-                        {
-                            "type": "variable_if",
-                            "name": "mouse_mode",
-                            "value": 1
-                        }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "f"
-                    },
-                    "to": {
-                        "mouse_key": { "horizontal_wheel": 100}
-                    },
-                    "conditions": [
-                        {
-                            "type": "variable_if",
-                            "name": "mouse_mode",
-                            "value": 1
-                        },
-                        {
-                            "type": "variable_unless",
-                            "name": "shift",
-                            "value": 1
-                        },
-                        {
-                            "type": "variable_if",
-                            "name": "scroll",
-                            "value": 1
-                        }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "e"
-                    },
-                    "to": {
-                        "mouse_key": { "vertical_wheel": -100}
-                    },
-                    "conditions": [
-                        {
-                            "type": "variable_if",
-                            "name": "mouse_mode",
-                            "value": 1
-                        },
-                        {
-                            "type": "variable_unless",
-                            "name": "shift",
-                            "value": 1
-                        },
-                        {
-                            "type": "variable_if",
-                            "name": "scroll",
-                            "value": 1
-                        }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "d"
-                    },
-                    "to": {
-                        "mouse_key": { "vertical_wheel": 100}
-                    },
-                    "conditions": [
-                        {
-                            "type": "variable_if",
-                            "name": "mouse_mode",
-                            "value": 1
-                        },
-                        {
-                            "type": "variable_unless",
-                            "name": "shift",
-                            "value": 1
-                        },
-                        {
-                            "type": "variable_if",
-                            "name": "scroll",
-                            "value": 1
-                        }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "s"
-                    },
-                    "to": {
-                        "mouse_key": { "horizontal_wheel": -100}
-                    },
-                    "conditions": [
-                        {
-                            "type": "variable_if",
-                            "name": "mouse_mode",
-                            "value": 1
-                        },
-                        {
-                            "type": "variable_unless",
-                            "name": "shift",
-                            "value": 1
-                        },
-                        {
-                            "type": "variable_if",
-                            "name": "scroll",
-                            "value": 1
-                        }
-                    ]
-                }
-            ]
         },
         {
             "description": "mouse button(mouse_in_keyboard)",
