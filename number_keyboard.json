@@ -1,0 +1,260 @@
+{
+    "title": "nuber_keyboard",
+    "rules": [
+        {
+            "description": "while pressing caps_lock, turned on",
+            "manipulators": [
+
+            ]
+        },
+        {
+            "description": "Turned on/off(number_keyboard)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "n"
+                    },
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "number_mode",
+                                "value": 1
+                            }
+                        },
+                        {
+                            "halt": true,
+                            "set_notification_message": {
+                                "id": "notice",
+                                "text": "Turned on Number keyboard"
+                            }
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_unless",
+                            "name": "number_mode",
+                            "value": 1
+                        },
+                        {
+                            "type": "variable_if",
+                            "name": "mode",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "semicolon"
+                    },
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "number_mode",
+                                "value": 0
+                            }
+                        },
+                        {
+                            "halt": true,
+                            "set_notification_message": {
+                                "id": "notice",
+                                "text": ""
+                            }
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "number_mode",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "caps_lock"
+                    },
+                    "to": {
+                        "set_variable": {
+                            "name": "mode",
+                            "value": 1
+                        }
+                    },
+                    "to_after_key_up": {
+                        "set_variable": {
+                            "name": "mode",
+                            "value": 0
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "description": "number(number_keyboard)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "u"
+                    },
+                    "to": {
+                        "key_code": "1"
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "number_mode",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "i"
+                    },
+                    "to": {
+                        "key_code": "2"
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "number_mode",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "o"
+                    },
+                    "to": {
+                        "key_code": "3"
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "number_mode",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "j"
+                    },
+                    "to": {
+                        "key_code": "4"
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "number_mode",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "k"
+                    },
+                    "to": {
+                        "key_code": "5"
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "number_mode",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "l"
+                    },
+                    "to": {
+                        "key_code": "6"
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "number_mode",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "m"
+                    },
+                    "to": {
+                        "key_code": "7"
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "number_mode",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "comma"
+                    },
+                    "to": {
+                        "key_code": "8"
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "number_mode",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "period"
+                    },
+                    "to": {
+                        "key_code": "9"
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "number_mode",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "slash"
+                    },
+                    "to": {
+                        "key_code": "0"
+                    },
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "number_mode",
+                            "value": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

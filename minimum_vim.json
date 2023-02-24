@@ -22,7 +22,12 @@
                             "text": "Turned on Minimum vim"
                         }
                     }
-                ]
+                ],
+                "conditions": {
+                    "type": "variable_if",
+                    "name": "j_key",
+                    "value": 1
+                }
             },
             {
                 "type": "basic",
