@@ -2,12 +2,6 @@
     "title": "nuber_keyboard",
     "rules": [
         {
-            "description": "while pressing caps_lock, turned on",
-            "manipulators": [
-
-            ]
-        },
-        {
             "description": "Turned on/off(number_keyboard)",
             "manipulators": [
                 {

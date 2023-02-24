@@ -39,7 +39,7 @@
                 {
                 "type": "basic",
                 "from": {
-                    "key_code": "caps_lock"
+                    "key_code": "q"
                 },
                 "to": [
                     {
@@ -335,7 +335,7 @@
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "q"
+                        "key_code": "t"
                     },
                     "to": [
                         {
@@ -353,7 +353,7 @@
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "a"
+                        "key_code": "g"
                     },
                     "to": [
                         {
