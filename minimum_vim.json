@@ -73,7 +73,9 @@
                         "bundle_identifiers": [
                         "com.googlecode.iterm2",
                         "com.microsoft.VSCode",
-                        "com.vmware.fusion"
+                        "com.vmware.fusion",
+                        "com.microsoft.rdc.macos",
+                        "com.apple.Terminal"
                         ]
                     },
                         {
